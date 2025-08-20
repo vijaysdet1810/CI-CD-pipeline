@@ -7,6 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Run tests and generate HTML
+        run: 
+          npm install
+          npm test -- -report=html > test-report.html
+          
       - name: Send email
         if: ${{ always() }}
         uses: dawidd6/action-send-mail@v3
@@ -17,8 +23,11 @@ jobs:
           username: ${{secrets.EMAIL_USERNAME}}
           password: ${{secrets.EMAIL_PASSWORD}}
           
-          from: ${{secrets.EMAIL_USERNAME}}
+          from: GitHub workflow@gmail.com
           to: vijay.rachuri1810@gmail.com
           subject: $${{ github.job}} job of $${{ github.repository }}
-          body: $${{ github.job}} job of $${{ github.workflow }}
+          body: Please find the Reports attachments
+          html-body: ${{ steps.html.outputs.html_body }}
+          attachments: README.md
+          
           
