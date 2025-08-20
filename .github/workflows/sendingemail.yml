@@ -11,7 +11,7 @@ jobs:
       - name: Run tests and generate HTML
         run: 
           npm install
-          npm test -- -report=html > test-report.html
+          npm test -- --reporter=html > test-report.html
           
       - name: Send email
         if: ${{ always() }}
