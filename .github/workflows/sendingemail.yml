@@ -19,6 +19,6 @@ jobs:
           
           from: ${{secrets.EMAIL_USERNAME}}
           to: vijay.rachuri1810@gmail.com
-          subject: mail title.
-          body: mail body
+          subject: $${{ github.job}} job of $${{ github.repository }}
+          body: $${{ github.job}} job of $${{ github.workflow }}
           
