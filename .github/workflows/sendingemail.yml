@@ -19,4 +19,5 @@ jobs:
           subject: mail title.
           body: file://README.md
           contentType: text/html
+          attachments: file://README.md
 
