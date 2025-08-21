@@ -25,7 +25,7 @@ jobs:
           
           from: GitHub workflow@gmail.com
           to: vijay.rachuri1810@gmail.com
-          subject: $${{ github.job}} job of $${{ github.repository }}
+          subject: Workflow daily execution report {{ github.workflow }} - {{ job.status }}
           body: Please find the Reports attachments
           html-body: ${{ steps.html.outputs.html_body }}
           attachments: README.md
